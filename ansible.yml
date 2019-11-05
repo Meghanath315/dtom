@@ -8,14 +8,14 @@
    - name: remove containers
      raw: docker rm -f c1 c2
      ignore_errors: true
+   - name: create container c1
+     raw: docker run -dti --name c1 -p 97:80 meghanath/tomim1:1 /bin/bash
    - name: Start and enable Tomcat service
      systemd:
       name: tomcat
       state: started
       enabled: true
       daemon_reload: true
-   - name: create container c1
-     raw: docker run -dti --name c1 -p 97:80 meghanath/tomim1:1 /bin/bash
    - name: create container c2
      raw: docker run -dti --name c2 -p 98:80 meghanath/tomim2:1 /bin/bash
 
