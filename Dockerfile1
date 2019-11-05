@@ -1,0 +1,7 @@
+FROM tomcat
+
+RUN mkdir /usr/local/tomcat/webapps/dtom
+
+ADD ./index1.html /usr/local/tomcat/webapps/dtom
+
+ENTRYPOINT service tomcat start && bash
